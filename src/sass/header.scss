@@ -1,0 +1,82 @@
+@import './_base.scss';
+$size: 90px;
+$border: 1px solid #288954;
+$color: #00ffde;
+$color_gray: #ccc;
+%size{
+  width: $size;
+  height: $size;
+}
+.header-bar
+{
+  color: $color;
+  .header-info{
+    height: 70px;
+    width: 35%;
+    min-width: 300px;
+    background: #179450;
+    margin: 20px auto;
+    font-size: smaller;
+    padding: 10px;
+    p {
+      @extend %h1;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+  }
+}
+
+.weixin::after
+{
+  content:'';
+  /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
+  background-image: url(../../assets/weixin.png);
+  background-size: cover;
+  left: $size;
+}
+
+/* 大的倒计时显示 */
+#header_timer{
+  $color: #eee;
+  text-align: center;
+  .insert-text {
+    color: rgb(255, 199, 0);
+    color: rgba(255, 199, 0, 0.8);
+    text-shadow: 1px 3px 6px #fff,0 0 0 #000,1px 3px 6px #fff;
+  }
+  h3{
+    @extend %h1;
+    // margin-top: -100px;
+    font-size: 3 * $font;
+    padding-top: 20px;
+  }
+  p{
+    // display: inline-table-cell;
+    @extend %h1;
+    margin-top: 10px;
+    font-size: 3 * $font;
+    vertical-align: middle;
+    span {
+      display: inline-block;
+      margin: 0 20px;
+      font-size: 1.5 * $font;
+      color: $hovercolor;
+      vertical-align: middle;
+      margin-top: -10px;
+      animation: scale 4s infinite;
+    }
+    @keyframes scale {
+      0 {
+        transform: scale(1)
+      }
+      50% {
+        transform: scale(1.2)
+      }
+      100% {
+        transform: scale(1)
+      }
+    }
+  }
+}
+
+

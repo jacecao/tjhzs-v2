@@ -1,0 +1,97 @@
+$navheight: 80px;
+$navcolor: #868686;
+/* 阴影设置 */
+$shadow: 0 0 5px rgba(71, 97, 83, 0.3);
+/* 文字hover时的色彩 */
+$hovercolor: #fe005b;
+$pcolor: #555;
+$hcolor: #424141;
+$headerheight: 480px;
+$header-title-color: #fff;
+$font: 1em;
+/* 网页主要色彩 */
+$bgcolor: #32b16c;
+$footerheight: 250px;
+/* 层级定义 */
+$z-super: 2000;
+$z-top: 1000;
+$z-mid: 800;
+/* 遮罩样式设计 */
+%mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.1);
+	// z-index: $z-mid;
+}
+
+@mixin a_css($color: inherit) {
+	text-decoration: none;
+	color: $color;
+}
+/* 单行省略设置 */
+@mixin break($width) {
+	max-width: $width;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.clearfix::after{
+	content: '\20';
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+%width {
+	width: 90%;
+  min-width: 1000px;
+  margin: 0 auto;
+}
+
+%mainwidth {
+  width: 90%;
+  //width: 1000px;
+  min-width: 1000px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+%middlewidth {
+  width: 800px;
+  margin: 0 auto;
+}
+
+%h1 {
+	padding: 0;
+	margin: 0;
+}
+
+%ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+%bg_flow {
+  width: 100%;
+  height: 100%;
+  background: #a1b042 linear-gradient(to right, transparent, rgba(72, 221, 197, 0.8431372549019608) 0%, rgba(255, 199, 0, 0.8) 47.06%, rgba(39, 226, 233, 0.85) 100%, transparent);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: bgflow 5s linear infinite alternate;
+}
+@keyframes bgflow {
+  0% {
+    background-position:100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

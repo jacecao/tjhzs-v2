@@ -1,0 +1,268 @@
+@import './_base.scss';
+$height: 300px;
+$width: 740px;
+$imgtextbg: rgba(65, 225, 189, 0.66);
+$textheight: 30px;
+$textcolor: #fff;
+$padding: 10px;
+/* show image css */
+%showsize {
+	height: $height;
+	width: $width;
+}
+.header-img, .display-img{
+	@extend %showsize;
+	overflow: hidden;
+	ul{
+		@extend %ul;
+		position: absolute;
+		top: 0;
+	}
+	li{
+		@extend %showsize;
+		position: relative;
+		top: 0;
+		float: left;
+		overflow: hidden;
+		a{
+			display: block;
+		}
+		/*
+    img{
+			@extend %showsize;
+		}
+    */
+		.img_desc{
+			display: block;
+			position: absolute;
+			background-color: $imgtextbg;
+			bottom: -100%;
+			width: 96%;
+			/* height: $textheight; */
+			line-height: $textheight;
+			padding: 0 10px 10px 10px;
+			transition: all 500ms;
+			color: $textcolor;
+		}
+		&:hover{
+			.img_desc{
+				bottom: 0;
+			}
+		}
+	}
+	.control{
+		display: block;
+		position: absolute;
+		height: 80px;
+		width: 60px;
+		line-height: 80px;
+		top: 50%;
+		margin-top: -45px;
+		color: #a2a2a2;
+		font-size: 6 * $font;
+		text-align: center;
+		transition: all 500ms;
+		cursor: pointer;
+		box-shadow: 0 0 4px rgba(0,0,0,0.3);
+		background-color: rgba(0,0,0,0.08);
+		opacity: 0;
+		@at-root #control_right
+		{
+			right: 76px;
+		}
+		@at-root #control_left
+		{
+			left: 76px;
+		}
+		@at-root #header_control_right
+		{
+			right: 76px;
+		}
+		@at-root #header_control_left
+		{
+			left: 76px;
+		}
+	}
+}
+
+.display-img:hover
+{
+	.control{
+		color: #fff;
+		opacity: 1;
+	}
+	#control_right
+	{
+		right: 10px;
+	}
+	#control_left
+	{
+		left: 10px;
+	}
+}
+
+/* newss css */
+.news{
+	h3 {
+		margin: 0;
+		height: 60px;
+    	width: 100%;
+		line-height: 60px;
+		text-align: center;
+		background-color: $bgcolor;
+    	background: #a1b042 linear-gradient(to right, transparent, rgba(255, 199, 0, 0.8) 0%, rgba(39, 226, 233, 0.85) 100%, transparent);
+    	background-size: 200% 100%;
+    	background-position: 100% 0;
+    	animation: process-animation 2s linear infinite alternate;
+		color: #fff;
+		font-size: 1.8 * $font;
+		letter-spacing: 3px;
+		font-weight: bold;
+	}
+  @keyframes process-animation {
+    0% {
+      background-position:100% 0;
+    }
+    100% {
+      background-position:0 0;
+    }
+  }
+	ul{
+		@extend %ul;
+		padding: 0 10px;
+		$li-height: 40px;
+		$textColor: #7d7d7d;
+		li{
+			position: relative;
+			height: $li-height;
+			width: 100%;
+			line-height: $li-height;
+			a{
+				@include a_css($textColor);
+				&:hover {
+					color: $hovercolor;
+					&:after{
+						opacity: 0.8;
+					}
+				}
+			}
+			h4 {
+				display: inline;
+        @include break(300px);
+				margin: 0;
+				padding: 0;
+				font-size: 0.9 * $font;
+				float: left;
+			}
+			span {
+				float: right;
+			}
+		}
+		a::after{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 2px;
+			background-color: $hovercolor;
+			width: 100%;
+			opacity: 0;
+			transition: all 500ms;
+		}
+
+	}
+}
+
+/* hotel css */
+.hot-logo
+{
+  padding: 20px 0;
+  background-color: #43ef92;
+  @extend %bg_flow;
+  h3{
+    margin: 0 auto;
+    width: 400px;
+		font-size: 3.7 * $font;
+		text-align: center;
+		color: $textcolor;
+    text-shadow: 0 0 3px rgba(0,0,0,0.6);
+		.red{
+			color: #fe005b;
+		}
+	}
+	h3::after{
+		content: '';
+		display: block;
+		height: 4px;
+		width: 100%;
+		margin-top: 6px;
+		box-shadow: 0 0 6px rgba(0,0,0,0.6);
+		background-color: #fff;
+	}
+	.title{
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-top: 16px;
+		font-size: 1.2 * $font;
+		color: $textcolor;
+    text-shadow: 0 0 3px rgba(0,0,0,0.6);
+	}
+  span {
+    cursor: default;
+  }
+}
+
+.hotel-list
+{
+	@extend %ul;
+	width: 100%;
+  margin: 10px auto 30px auto;
+  /* text-align: center; */
+  text-align: left;
+	li {
+		position: relative;
+    display: inline-block;
+		margin: 20px 0 0 22px;
+    padding: 4px;
+    %imgsize {
+      width: 210px;
+      height: 240px;
+    }
+		.hot_img_box {
+			@include a_css(#fff);
+      @extend %imgsize;
+			display: block;
+			border: 2px solid #eee;
+			transition: all 400ms;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+			/*overflow: hidden;*/
+      img {
+        @extend %imgsize;
+      }
+			.img_info {
+				box-sizing: border-box;
+				position: absolute;
+				width: 210px;
+				bottom: 0;
+				padding: 6px;
+				background-color: rgba(65, 225, 189, 0.66);
+				text-align: center;
+				font-size: 1.2 * $font;
+				transition: all 400ms;
+				opacity: 0;
+			}
+			&:hover{
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        transform: scale(1.05);
+				.img_info{
+					bottom: 100px;
+					opacity: 1;
+				}
+			}
+		}
+    &:first-child {
+      /* margin-left: 0; */
+    }
+	}
+}
