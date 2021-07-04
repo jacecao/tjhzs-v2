@@ -46,19 +46,23 @@
     mounted: function () {
       let _width = this.$el.parentNode.offsetWidth
       let _height = this.$el.parentNode.offsetHeight
-      this.$el.style.width = _width + 'px'
-      this.$el.style.height = _height + 'px'
       let _loading = this.$el.querySelector('.loading')
       let _circle = _loading.querySelector('.circle-1')
       let _info = _loading.querySelector('.loading_info')
-      if (this.haveinfo) {
-        // 计算出small_loading在较小的元素中的top值
-        // 例如在本网页中首页酒店展示栏的加载动画就需要重新计算相对高度
-        let _top = window.Math.ceil((_height - _info.offsetTop - _info.offsetHeight) / 2)
-        _loading.style.top = _top + 'px'
-      } else {
-        let _top = window.Math.ceil((_height - _circle.offsetHeight) / 2)
-        _loading.style.top = _top + 'px'
+      if (_height && _width) {
+        // 当加载动画的父元素没有固定宽高时采用默认的css布局
+        // 当已经设置了宽和高时根据父元素来计算加载动画的显示位置
+        this.$el.style.width = _width + 'px'
+        this.$el.style.height = _height + 'px'
+        if (this.haveinfo) {
+          // 计算出small_loading在较小的元素中的top值
+          // 例如在本网页中首页酒店展示栏的加载动画就需要重新计算相对高度
+          let _top = window.Math.ceil((_height - _info.offsetTop - _info.offsetHeight) / 2)
+          _loading.style.top = _top + 'px'
+        } else {
+          let _top = window.Math.ceil((_height - _circle.offsetHeight) / 2)
+          _loading.style.top = _top + 'px'
+        }
       }
     }
   }
@@ -68,6 +72,10 @@
 	@import '../../sass/_base.scss';
 	.tjhzs_loading{
 		position: relative;
+    width: intrinsic;
+    width: inherit;
+    height: intrinsic;
+    height: inherit;
 	}
   .loading{
     position: relative;

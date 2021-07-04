@@ -9,6 +9,10 @@
         >首页</router-link>
       </li>
       <li  @click="scrollToTop"><router-link
+        to="/news_list" active-class="active"
+        >新闻动态</router-link>
+      </li>
+      <li  @click="scrollToTop"><router-link
         to="/product" active-class="active"
         >产品案例展示</router-link>
       </li>
@@ -84,18 +88,21 @@ a:hover, .active{
 }
 
 .nav-bar{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between  ;
   top: 0;
   left: 0;
   right: 0;
   height: $navheight;
   z-index: $z-super;
   width: 100%;
-  min-width: 1000px;
+  min-width: 1200px;
   box-shadow: 0 1px 1px rgba(100, 100, 100, 0.2);
   overflow: hidden;
 }
 .logo{
-  margin-left: 200px;
+  margin-left: 160px;
   float: left;
   span {
     display: inline-block;
@@ -113,9 +120,8 @@ a:hover, .active{
 }
 
 ul{
-  float: right;
-  margin: 0 200px 0 0;
-  width: 300px;
+  margin: 0 120px 0 0;
+  width: 500px;
   li{
     display: inline-block;
     margin-right: 46px;

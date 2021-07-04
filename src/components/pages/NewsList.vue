@@ -246,5 +246,4 @@ export default {
     a.active {background: #fe005b;}
   }
 }
-
 </style>

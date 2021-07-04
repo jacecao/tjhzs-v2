@@ -59,9 +59,13 @@ export default {
   },
   computed: {
     _style_ () {
+      /*************************************************
       // 将尺寸和元素定位反应给父元素
       // 这里使用了ES6中赋值对象功能
-      return Object.assign(this.size, this.setcss)
+      // 注意这里的assign方法是会改变setcss的值，而不会改变size的值
+      // 注意这里如果存在数据污染就会出现布局混乱
+      ************************************************/
+      return Object.assign(this.setcss, this.size)
     },
 
     _show_ctl () {

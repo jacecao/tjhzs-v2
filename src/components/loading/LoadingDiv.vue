@@ -1,5 +1,6 @@
 <template>
-  <div class="loading_v1"></div>
+  <!-- 背景渐变加载动画 -->
+  <div class="loading_div"></div>
 </template>
 
 <script>

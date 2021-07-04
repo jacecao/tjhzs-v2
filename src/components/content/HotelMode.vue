@@ -69,7 +69,5 @@ export default {
   width: 1000px;
   margin: 40px auto;
   border: 1px solid #dadada;
-  //padding-top: 20px;
-  //box-shadow:  $shadow;
 }
 </style>

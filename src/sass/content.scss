@@ -102,7 +102,7 @@ $padding: 10px;
 }
 
 /* newss css */
-.news{
+.news, .news-mode{
 	h3 {
 		margin: 0;
 		height: 60px;
@@ -127,9 +127,9 @@ $padding: 10px;
       background-position:0 0;
     }
   }
-	ul{
+	ul.news-list{
 		@extend %ul;
-		padding: 0 10px;
+		padding: 20px;
 		$li-height: 40px;
 		$textColor: #7d7d7d;
 		li{
@@ -148,7 +148,6 @@ $padding: 10px;
 			}
 			h4 {
 				display: inline;
-        @include break(300px);
 				margin: 0;
 				padding: 0;
 				font-size: 0.9 * $font;
@@ -174,7 +173,7 @@ $padding: 10px;
 }
 
 /* hotel css */
-.hot-logo
+.hot-logo, .huizhan-logo
 {
   padding: 20px 0;
   background-color: #43ef92;

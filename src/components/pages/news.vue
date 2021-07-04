@@ -8,7 +8,7 @@
 		<section class="img-group">
 			<display-img v-if="images.length > 0" :isLink="false" :images='images' :size='size'/>
 		</section>
-		<section class="news-content" v-html="getHtml(news.content)">{{getHtml(news.content)}}</section>
+		<section class="news-content" v-html="getHtml(news.content)"></section>
 	</div>
 </template>
 

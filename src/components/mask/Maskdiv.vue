@@ -35,7 +35,6 @@
       // 覆盖parentNode的遮盖样式
       if (!this.auto && this.parentNode) {
         // this.$el 指当前创建的Node
-        // this.$el.
         this.$el.style.width = this.parentNode.$el.parentNode.offsetWidth + 'px'
         this.$el.style.height = this.parentNode.$el.parentNode.offsetHeight + 'px'
       }
@@ -45,6 +44,6 @@
 
 <style scoped lang="scss">
   .tjhzs_mask{
-  	background-color: rgba(100,100,100,0.1);
+  	background-color: rgba(182, 129, 129, 0.1);
   }
 </style>

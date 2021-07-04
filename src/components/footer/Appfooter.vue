@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     version () {
-      return `2009-${this.date} v1.1`
+      return `2009-${this.date} v1.8`
     },
     // 适配多个域名的ICP
     show_icp () {

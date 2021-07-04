@@ -23,7 +23,7 @@
 <script>
 import Headertitle from './Headertitle'
 import MeetingInfo from './MeetingInfo'
-import Loading from 'components/loading/Loading_v1'
+import Loading from 'components/loading/Loadingdiv'
 import RepeatImg from 'components/content/RepeatImg'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
@@ -36,7 +36,7 @@ export default {
       header_img: [],
       size: {
         height: '440px',
-        width: '980px'
+        width: '1000px'
       },
       isLink: false
       // ready: false
@@ -97,15 +97,5 @@ $radius: 6px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
-  // box-shadow: 0 0 4px 3px hsla(0, 0, 72%, 0.1);
-  //border-radius: $radius;
-  // .header-img {
-  //   width: 100%;
-  //   height: 100%;
-  //   //border-radius: $radius / 2;
-  //   transition: all 1s;
-  //   opacity: 0;
-  //   /* filter: blur(2px); */
-  // }
 }
 </style>
