@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Displayimg from './Displayimg'
-import News from './News'
+import Displayimg from 'components/content/Displayimg'
+import News from 'components/content/News'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
 import {saveSession} from '@js/tool.js'

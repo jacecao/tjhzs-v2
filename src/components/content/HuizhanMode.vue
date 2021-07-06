@@ -1,5 +1,5 @@
 <template>
-  <section class="huizhan-box">
+  <section v-if="show_the_model" class="huizhan-box">
     <div class="huizhan-logo">
       <h3>{{huizhanName}}</h3>
       <span class="title">{{time}}会展中心介绍</span>

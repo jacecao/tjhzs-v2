@@ -2,7 +2,7 @@
   <ul class="news-list">
     <li v-for="item in newsdata">
       <router-link v-bind:to="path+item.id" v-bind:title="item.title">
-        <h4>{{item.title}}</h4><span>{{dateFilter(item.date)}}</span>
+        <h4>{{item.title}}</h4><span>发布日期： {{item.date}}</span>
       </router-link>
     </li>
   </ul>
@@ -23,11 +23,7 @@ export default {
     }
   },
   created () {},
-  methods: {
-    dateFilter (date) {
-      return date.split(' ')[0]
-    }
-  },
+  methods: {},
   components: {}
 }
 </script>

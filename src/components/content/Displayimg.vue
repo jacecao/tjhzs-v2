@@ -1,6 +1,7 @@
 <template>
   <!-- 首页新闻图片浏览组件 -->
   <div class="display-img" :style="_style_">
+    <p>displayimg</p>
     <ul v-if='isLink' id="show_img" class="clearfix img_box" key="link">
       <li v-for="item in images" :style='size'>
         <router-link :to="item.url">

@@ -1,10 +1,12 @@
 <template>
   <section class="news-list">
-    <display-img :images='imageItems' :size='size'/>
+    <!-- <display-img :images='imageItems' :size='size'/> -->
     <h4>新闻列表</h4>
     <ul class="news-list">
       <li v-for="item in news">
-        <a class="news-href" :href="newsLink+item.id" :title="item.title">{{item.title}}</a><span class="news-time">{{dateFilter(item.date)}}</span>
+        <router-link class="news-href" v-bind:to="newsLink+item.id" :title="item.title">
+          <span>{{item.title}}</span><span class="news-time">发布日期：{{item.date}}</span>
+        </router-link>
       </li>
     </ul>
     <div v-if="pageCount > 1" class="list-navgation">
@@ -57,9 +59,9 @@ export default {
     } else {
       // 如果没有检查到临时储存数据重新请求JSON数据
       const _url = Path.newsPAGE
-      let _images = []
       vm.$http.get(Path.dataURL + 'news.json').then((res) => {
         let data = Json(res.body)
+        let _images = []
         for (let n of data) {
           _images.push({
             url: _url + n.id,
@@ -67,12 +69,13 @@ export default {
             desc: n.poster.desc
           })
         }
-        vm.imageItems = _images
-        vm.news = data
+        vm.imageItems = _tempNewsImageItems
+        vm.news = _tempNewsData
       }, () => {
         console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
       })
     }
+
     // 获取服务端新闻总页码数
     const _newsInfo = `${Path.webControl}getNewsPages`
     vm.$http.get(_newsInfo).then((res) => {
@@ -154,10 +157,6 @@ export default {
           this.showPreventPage = false
         }
       }
-    },
-    // 时间修正
-    dateFilter (date) {
-      return date.split(' ')[0]
     }
   },
   components: { 'display-img': DisplayImg }
@@ -167,15 +166,16 @@ export default {
 <style scoped lang="scss">
 @import '../../sass/_base.scss';
 .news-list {
-  @extend %middlewidth;
+  @extend %mainwidth;
   h4 {
     display: block;
-    width: 112px;
+    width: 120px;
     height: 40px;
     line-height: 40px;
     margin: 20px auto 0 auto;
     font-size: 24px;
     letter-spacing: 4px;
+    text-align: center;
     color: rgb(72,221,197);
     border-bottom: 1px solid rgb(72,221,197);
   }
@@ -194,14 +194,15 @@ export default {
       border-bottom: 1px solid #eff1f1;
       .news-href {
         display: inline-block;
-        width: 520px;
+        // width: 520px;
+        width: 100%;
         height: 60px;
         vertical-align: middle;
-        overflow: hidden;
+        // overflow: hidden;
         font-size: 16px;
         letter-spacing: 1px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
         text-decoration: none;
         color: #424242;
         text-align: left;
@@ -209,13 +210,13 @@ export default {
       .news-href:hover {color: $hovercolor}
       .news-time {
         display: inline-block;
-        width: 200px;
         height: 60px;
         font-size: 16px;
         letter-spacing: 1px;
         color: #9d9d9d;
         vertical-align: middle;
         text-align: right;
+        float: right;
       }
     }
   }
