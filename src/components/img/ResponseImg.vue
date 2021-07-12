@@ -34,7 +34,8 @@
         imgShowCss: {
           'height': '100%',
           'width': 'auto',
-          'left': 0
+          'left': 0,
+          'top': 0
         },
         imgH: 0,
         imgW: 0
@@ -69,15 +70,25 @@
       resetImgCss () {
         // 获取当前容器大小，获取在容器高度下，图片应该显示的宽度
         let imgShowHeight = this.css.height
-        let imgShowWidth = Math.floor(this.imgW * parseInt(this.css.height) / this.imgH)
-        // 图片居中显示位置, 获取偏移量
-        let positionLeft = (parseInt(this.css.width) - imgShowWidth) / 2
-        positionLeft = Math.floor(positionLeft)
+        let imgShowWidth = Math.floor(this.imgW * parseInt(imgShowHeight) / this.imgH)
+        let positionLeft = 0
+        let positionTop = 0
+        // 计算后得到的图片宽度如果大于容器的宽度则按容器宽度计算
+        if (imgShowWidth < parseInt(this.css.width)) {
+          // 图片居中显示位置, 获取偏移量
+          positionLeft = (parseInt(this.css.width) - imgShowWidth) / 2
+          positionLeft = Math.floor(positionLeft)
+        } else {
+          imgShowWidth = this.css.width
+          imgShowHeight = Math.floor(this.imgH * parseInt(imgShowWidth) / this.imgW)
+          positionTop = (parseInt(this.css.height) - imgShowHeight) / 2
+          positionTop = Math.floor(positionTop)
+        }
         // 设置css对象
-        this.$set(this.imgShowCss, 'height', imgShowHeight)
-        this.$set(this.imgShowCss, 'width', `${imgShowWidth}px`)
         this.$set(this.imgShowCss, 'left', `${positionLeft}px`)
-        // console.log(this.imgShowCss.height, this.imgShowCss.width)
+        this.$set(this.imgShowCss, 'top', `${positionTop}px`)
+        this.$set(this.imgShowCss, 'height', `${imgShowHeight}px`)
+        this.$set(this.imgShowCss, 'width', `${imgShowWidth}px`)
       }
     },
     components: {Loading}

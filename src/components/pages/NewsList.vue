@@ -1,6 +1,6 @@
 <template>
   <section class="news-list">
-    <!-- <display-img :images='imageItems' :size='size'/> -->
+    <display-img :images='imageItems' :size='size'/>
     <h4>新闻列表</h4>
     <ul class="news-list">
       <li v-for="item in news">
@@ -223,6 +223,7 @@ export default {
   .list-navgation {
     width: 800px;
     height: 32px;
+    margin: 0 auto;
     text-align: center;
     font-size: 0;
     line-height: 32px;

@@ -1,7 +1,6 @@
 <template>
   <!-- 首页新闻图片浏览组件 -->
-  <div class="display-img" :style="_style_">
-    <p>displayimg</p>
+  <div class="display-img" :style="_style_" ref="displayImg">
     <ul v-if='isLink' id="show_img" class="clearfix img_box" key="link">
       <li v-for="item in images" :style='size'>
         <router-link :to="item.url">
@@ -66,7 +65,11 @@ export default {
       // 注意这里的assign方法是会改变setcss的值，而不会改变size的值
       // 注意这里如果存在数据污染就会出现布局混乱
       ************************************************/
-      return Object.assign(this.setcss, this.size)
+      if (this.setcss && this.size) {
+        return Object.assign(this.setcss, this.size)
+      } else {
+        return this.size
+      }
     },
 
     _show_ctl () {
@@ -100,8 +103,10 @@ export default {
     }
 
   },
-  mounted: function () {
+  created () {},
+  mounted () {
     // 在挂载组件后必须将组件高度值传给子组件（也就是图片组件）
+    // console.log(this.$refs.displayImg)
     let selfCss = window.getComputedStyle(this.$el)
     this.size.height = selfCss.getPropertyValue('height')
     this.play()

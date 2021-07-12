@@ -88,5 +88,6 @@ export default {
   height: 400px;
   text-align: center;
   margin: 0 auto;
+  border: 3px solid rgba(65,225,189,0.7);
 }
 </style>
