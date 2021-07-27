@@ -5,7 +5,8 @@
       <span class="title">{{time}}会展中心介绍</span>
     </div>
     <div class="huizhan-content">
-      <div class="huizhan-img-box">
+      <play-img v-if="imageItems.length > 0" :images='imageItems' :size='imgStyle' :isLink='false' />
+      <div v-else class="huizhan-img-box">
         <app-img :src="poster.img_url" :css="imgStyle" />
       </div>
       <div style="padding: 10px;" v-html="getHtml(content)"></div>
@@ -15,6 +16,7 @@
 
 <script>
 import AppImg from 'components/img/ResponseImg'
+import Displayimg from 'components/content/Displayimg'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
 import {replaceStr} from '@js/tool.js'
@@ -22,7 +24,7 @@ export default {
   name: 'huizhanMode',
   data () {
     return {
-      items: [],
+      imageItems: [],
       huizhanName: 'Jun\'s Fun',
       show_the_model: false,
       content: '',
@@ -48,11 +50,18 @@ export default {
     vm.$http.get(Path.dataURL + vm.dataName).then(function (res) {
       // tjhzs服务器返回的json字符串
       let data = Json(res.body)
-      vm.items = data
+      // 获取图片数据
+      vm.imageItems = data.images
       vm.huizhanName = data.name
       vm.show_the_model = data.display
       vm.content = data.content
       vm.poster = data.poster
+      // 将封面图片加入图片数组前面
+      if (vm.imageItems instanceof Array) {
+        vm.imageItems.unshift(data.poster)
+      } else {
+        vm.imageItems[0] = data.poster
+      }
     }, function () {
       // 如果读取失败则不显示此模块
       vm.show_the_model = false
@@ -65,7 +74,7 @@ export default {
       return replaceStr(value, reg)
     }
   },
-  components: {'app-img': AppImg}
+  components: {'play-img': Displayimg, 'app-img': AppImg}
 }
 </script>
 
