@@ -2,7 +2,7 @@
   <ul class="news-list">
     <li v-for="item in newsdata">
       <router-link v-bind:to="path+item.id" v-bind:title="item.title">
-        <h4>{{item.title}}</h4><span>发布日期： {{item.date}}</span>
+        <h4>{{item.title}}</h4><span>发布日期： {{item.createdate ? item.createdate : item.date}}</span>
       </router-link>
     </li>
   </ul>

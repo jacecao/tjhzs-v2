@@ -3,7 +3,7 @@
     <router-link class="return_list" to="/news_list">返回新闻列表</router-link>
 		<header>
 			<h3>{{news.title}}</h3>
-			<span class="news_time">编写时间：{{news.date}}</span>
+			<span class="news_time">编写时间：{{news.createdate ? news.createdate : news.date}}</span>
 		</header>
 		<section class="img-group">
 			<display-img v-if="images.length > 0" :isLink="false" :images='images' :size='size'/>

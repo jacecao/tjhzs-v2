@@ -62,6 +62,15 @@ export default {
       } else {
         vm.imageItems[0] = data.poster
       }
+      // 重组新闻中图片数据
+      let _images = []
+      for (let n of vm.imageItems) {
+        _images.push({
+          imgurl: n.img_url,
+          desc: n.img_desc
+        })
+      }
+      vm.imageItems = _images
     }, function () {
       // 如果读取失败则不显示此模块
       vm.show_the_model = false

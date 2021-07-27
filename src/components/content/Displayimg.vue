@@ -1,6 +1,6 @@
 <template>
   <!-- 首页新闻图片浏览组件 -->
-  <div class="display-img" :style="_style_" ref="displayImg">
+  <div class="display-img" :class="className" :style="_style_" ref="displayImg">
     <ul v-if='isLink' id="show_img" class="clearfix img_box" key="link">
       <li v-for="item in images" :style='size'>
         <router-link :to="item.url">
@@ -78,16 +78,21 @@ export default {
       } else {
         return true
       }
+    },
+    // 获取随机类名，避免同页面轮播图执行混乱
+    className () {
+      return 'play_img_' + Math.floor(Math.random() * 100)
     }
   },
   methods: {
     play () {
       let _step = parseInt(this.size.width)
+      let vm = this
       // 轮播图控制
       play({
         step: _step, // 每次移动的总步长(也就是每张图片的宽度)
         time: 5000, // 每张图片展示时长
-        fatherbox: '.display-img', // 父容器名字
+        fatherbox: `.${vm.className}`, // 父容器名字,注意这里传入的是一个带点的类名
         imgbox: '.img_box',
         prev: '#control_left',
         next: '#control_right'

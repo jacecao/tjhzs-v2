@@ -5,7 +5,7 @@
     <ul class="news-list">
       <li v-for="item in news">
         <router-link class="news-href" v-bind:to="newsLink+item.id" :title="item.title">
-          <span>{{item.title}}</span><span class="news-time">发布日期：{{item.date}}</span>
+          <span>{{item.title}}</span><span class="news-time">发布日期：{{item.createdate ? item.createdate : item.date}}</span>
         </router-link>
       </li>
     </ul>

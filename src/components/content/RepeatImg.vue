@@ -1,5 +1,5 @@
 <template>
-  <!-- 首页新闻图片浏览组件 -->
+  <!-- 顶部图片浏览组件 -->
   <div class="header-img" :style="_style_">
     <ul v-if='isLink' id="show_img" class="clearfix header_img_box" key="link">
       <li v-for="item in images" :style="size">
