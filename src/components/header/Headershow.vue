@@ -35,8 +35,8 @@ export default {
       headerinfo: {},
       header_img: [],
       size: {
-        height: '440px',
-        width: '1000px'
+        height: '640px',
+        width: '1200px'
       },
       isLink: false
       // ready: false
@@ -85,7 +85,7 @@ export default {
 @import '../../sass/_base.scss';
 .header-info, .header-show{
   box-sizing: border-box;
-  width: 1020px;
+  width: 1220px;
   margin: 0 auto;
 }
 $radius: 6px;

@@ -34,8 +34,8 @@ export default {
       style: {
       },
       size: {
-        height: '460px',
-        width: '760px'
+        height: '560px',
+        width: '1000px'
       },
       newsLink: Path.newsPAGE,
       pageCount: 1,

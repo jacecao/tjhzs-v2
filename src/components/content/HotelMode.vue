@@ -1,5 +1,5 @@
 <template>
-  <section class="hotel-content">
+  <section v-if="isShow" class="hotel-content">
     <div class="hot-logo">
         <h3>
             <span class="red">{{setTitle}}-</span><span class="red">HOT</span><span>EL</span>
@@ -41,6 +41,10 @@ export default {
     pagePath: {
       type: String,
       default: 'hotels/'
+    },
+    isShow: {
+      type: Boolean,
+      default: false
     }
   },
   created () {

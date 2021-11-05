@@ -1,20 +1,3 @@
-// window.onload = function () {
-//   focusImg({
-//     startIndex: 2, //起始位置
-//     step: 600,  //每次移动的总步长(也就是每张图片的宽度)
-//     time: 3000, //每张图片展示时长
-//     activeClass: 'on', //激活时的样式名
-//     fatherbox: '#container', //父容器名字
-//     imgbox: '.img-box',
-//     prev: '.left',
-//     next: '.right',
-//     button: '.button>li'
-//     // overCall: 鼠标移入时的回调
-//     // outCall: 鼠标移出时的回调
-//   });
-// };
-// initStart 轮播动画起始位置
-
 export default function (config) {
   // 每次移动的总步长(也就是每张图片的宽度)
   const step = config.step
@@ -33,7 +16,13 @@ export default function (config) {
   var TIMER
 
   var container = document.querySelector(config.fatherbox)
+  if (!container) {
+    console.log('在选择轮播图的父容器出现错误')
+  }
   var ul = container.querySelector(config.imgbox)
+  if (!ul) {
+    console.log('在选择轮播画面列表容器出现错误')
+  }
   var list = ul.querySelectorAll('li')
   var prev = container.querySelector(config.prev)
   var next = container.querySelector(config.next)

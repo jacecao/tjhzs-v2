@@ -18,11 +18,11 @@ export default {
   data () {
     return {
       style: {
-        'margin-top': '20px'
+        'margin-top': '10px'
       },
       size: {
-        'width': '560px',
-        'height': '300px'
+        'width': '980px',
+        'height': '400px'
       },
       items: [],
       news: [],

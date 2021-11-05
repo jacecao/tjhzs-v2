@@ -17,14 +17,14 @@
   export default {
     data () {
       return {
-        setMargin: {marginTop: '120px'}
+        setMargin: {marginTop: '70px'}
       }
     },
     methods: {
       getPosition (position) {
         switch (position) {
           case 'fixed':
-            this.setMargin = {marginTop: '120px'}
+            this.setMargin = {marginTop: '70px'}
             break
           case 'relative':
             this.setMargin = {marginTop: '30px'}
