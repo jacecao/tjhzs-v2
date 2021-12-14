@@ -19,6 +19,7 @@
       alt: {
         type: String
       },
+      // 这里一定要给初始图片显示大小
       css: {
         type: Object
       },

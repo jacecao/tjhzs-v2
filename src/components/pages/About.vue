@@ -1,17 +1,32 @@
 <template>
+  <div class="temp_div"> 
   <div class="tjhzs_about tjhzs-main-content">
     <div class="weixin">
       <img src="/static/img/weixin.02fbb77.png" alt="weixin">
       <p>我们的公众号</p>
     </div>
 
-  	<section v-for='item in info' class="about_list">
+  	<!-- <section v-for='item in info' class="about_list">
       <div class="head">
         <div class="title">{{item.title}}</div>
       </div>
       <div class="content" v-html="getHtml(item.content)">{{getHtml(item.content)}}
       </div>
+    </section> 临时取消 2021-12-15 --> 
+    <section class="about_list">
+      <div class="head">
+        <div class="title">{{info[0].title}}</div>
+      </div>
+      <div class="content" v-html="getHtml(info[0].content)">{{getHtml(info[0].content)}}
+      </div>
+      <div class="head">
+        <div class="title">{{info[1].title}}</div>
+      </div>
+      <img class="temp_img_2" src="http://www.tjhzs.com/images/tjhzs_2021_12_15.jpg" alt=""/>
+      <div class="content" v-html="getHtml(info[1].content)">{{getHtml(info[1].content)}}
+      </div>
     </section>
+
     <section class="about_list about_weal">
       <div class="head">
         <div class="title">我们的福利</div>
@@ -48,13 +63,16 @@
       </div>
     </section>
     <job-head :contact="contact"/>
-    <Works :Jobs="jobs"/>
+    <!-- <Works :Jobs="jobs"/> 临时取消2021—12-15 -->
+  </div>
+  <!-- 临时节点 -->
+  <img class="temp_img" src="http://www.tjhzs.com/images/tjhzs_2021_12_15_2.jpg"/>
   </div>
 </template>
 
 <script>
 import JobHead from 'components/job/Jobheader'
-import Works from 'components/job/works'
+// import Works from 'components/job/works'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
 import {replaceStr} from '@js/tool.js'
@@ -100,7 +118,8 @@ export default {
       return replaceStr(value, reg)
     }
   },
-  components: {JobHead, Works}
+  // components: {JobHead, Works}
+  components: {JobHead} // 临时修改
 }
 </script>
 
@@ -119,6 +138,16 @@ export default {
     border: 2px solid #3eb812;
   }
 }
-
-
+.temp_img {
+  display: block;
+  width: 1200px;
+  height: auto;
+  margin: 40px auto;
+}
+.temp_img_2 {
+  display: block;
+  width: 500px;
+  height: auto;
+  margin: 40px auto;
+}
 </style>
