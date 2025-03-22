@@ -14,9 +14,9 @@
       </div>
     </div>
     <div class="header-info">
-      <span>布展时间：{{headerinfo.readytime}}</span><i>/</i>
-      <span>开展时间：{{headerinfo.starttime}}</span><i>/</i>
-      <span>展会地址：{{headerinfo.addr}}</span>
+      <p>布展时间：{{headerinfo.readytime}}</p>
+      <p>开展时间：{{headerinfo.starttime}}</p>
+      <p>展会地址：{{headerinfo.addr}}</p>
     </div>
   </section>
 </template>
