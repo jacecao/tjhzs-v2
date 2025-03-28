@@ -180,7 +180,7 @@ $padding: 10px;
   @extend %bg_flow;
   h3{
     margin: 0 auto;
-    width: 400px;
+    width: 800px;
 		font-size: 3.7 * $font;
 		text-align: center;
 		color: $textcolor;
@@ -193,8 +193,8 @@ $padding: 10px;
 		content: '';
 		display: block;
 		height: 4px;
-		width: 100%;
-		margin-top: 6px;
+		width: 400px;
+		margin: 6px auto 0 auto;
 		box-shadow: 0 0 6px rgba(0,0,0,0.6);
 		background-color: #fff;
 	}
