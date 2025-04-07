@@ -1,8 +1,8 @@
 <template>
   <section v-if="show_the_model" class="huizhan-box">
     <div class="huizhan-logo">
-      <h3>{{huizhanName}}</h3>
-      <span class="title">{{time}}会展中心介绍</span>
+      <h3><span class="red">{{time}}-</span>会展中心介绍</h3>
+      <span class="title">{{huizhanName}}</span>
     </div>
     <div class="huizhan-content">
       <play-img v-if="imageItems.length > 0" :images='imageItems' :size='imgStyle' :isLink='false' />

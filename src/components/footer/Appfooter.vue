@@ -5,7 +5,7 @@
       <block v-for="item in items" :info="item"></block>
       <web-info :webinfo='webInfo'/>
     </div>
-    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;/&nbsp;成都和邦华展广告有限公司&nbsp;&nbsp;{{version}} &nbsp;&nbsp;
+    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;/&nbsp;成都和邦会议展览服务有限公司&nbsp;&nbsp;{{version}} &nbsp;&nbsp;
       <a class="beian"
         href="http://beian.miit.gov.cn/"
         target="_blank" style="text-decoration: none;"

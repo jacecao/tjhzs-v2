@@ -31,21 +31,21 @@ export default {
   data () {
     return {
       huizhan_a: {
-        time: '春季',
+        time: '春糖',
         file: 'huizhan_chun.json'
       },
       huizhan_b: {
-        time: '秋季',
+        time: '秋糖',
         file: 'huizhan_qiu.json'
       },
       hotel_a: {
-        title: '春季',
+        title: '春糖',
         file: 'hotel.json',
         page: Path.hotelPAGE,
         isShow: true
       },
       hotel_b: {
-        title: '秋季',
+        title: '秋糖',
         file: 'hotel_autumn.json',
         page: Path.autumnHotelPAGE,
         isShow: true

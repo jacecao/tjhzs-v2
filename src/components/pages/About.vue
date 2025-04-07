@@ -2,7 +2,10 @@
   <div class="temp_div"> 
     <!-- 重新调整框架，将公司图片单独显示在最前面 -->
     <!-- 讲微信显示到招聘之前 -->
+    <!-- 图片更新暂时不显示
     <img class="temp_img" src="/static/img/about.jpg" alt=""/>
+  -->
+    <img class="temp_img" src="http://www.tjhzs.com/images/tjhzs_2021_12_15.jpg" alt=""/>
     <div class="tjhzs_about tjhzs-main-content">
       <!-- <section v-for='item in info' class="about_list">
         <div class="head">
